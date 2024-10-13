@@ -8,8 +8,6 @@ export const Socials = () => {
     <Header />
 
     <Typography variant="h1">Socials</Typography>
-
-  
   </div>
   )
 }

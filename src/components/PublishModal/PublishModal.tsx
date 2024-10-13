@@ -10,7 +10,7 @@ interface CampaignModalProps {
     formData: ICampaingProps;
     handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
     handleSwitchChange: () => void;
-    handleSubmit: (e: FormEvent) => void;
+    handleSubmit: (campaign: ICampaingProps) => void;
 }
 
 const customStyles = {
@@ -66,12 +66,14 @@ export const PublishModal: React.FC<CampaignModalProps> = ({
                             checked={facebookEnabled}
                             onChange={() => setFacebookEnabled(!facebookEnabled)}
                             color="blue"
+                            disabled
                         />
                     </div>
 
                     <div className="flex items-center justify-between mb-4">
                         <FaInstagram size={IconSize} />
                         <Switch
+                        disabled
                             crossOrigin
                             checked={instagramEnabled}
                             onChange={() => setInstagramEnabled(!instagramEnabled)}
@@ -92,6 +94,7 @@ export const PublishModal: React.FC<CampaignModalProps> = ({
                     <div className="flex items-center justify-between mb-4">
                         <FaLinkedin size={IconSize} />
                         <Switch
+                        disabled
                             crossOrigin
                             checked={linkedinEnabled}
                             onChange={() => setLinkedinEnabled(!linkedinEnabled)}
@@ -100,7 +103,7 @@ export const PublishModal: React.FC<CampaignModalProps> = ({
                     </div>
                 </CardBody>
                 <CardFooter className="pt-0">
-                    <Button fullWidth onClick={handleSubmit} color="green">
+                    <Button fullWidth onClick={() => handleSubmit(formData)} color="green">
                         Salvar
                     </Button>
                 </CardFooter>

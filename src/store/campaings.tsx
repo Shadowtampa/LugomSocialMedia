@@ -1,19 +1,29 @@
 import { Observer, Subject } from 'rxjs';
 import { ICampaingProps } from '../interfaces/Campaing';
 
-const subject = new Subject();
+const subject = new Subject<ICampaingProps[]>();
 
-const initialState: ICampaingProps[] =
-    [
-    ]
-    ;
+const campaings: ICampaingProps[] = [
+    
+];
 
-let state = initialState;
+const storeID = 1;
+
+let state = campaings;
 
 export const campaingStore = {
+    // Inicia o estado emitindo o estado atual
     init: () => subject.next(state),
 
-    subscribe: (setState: Partial<Observer<unknown>> | ((value: unknown) => void) | undefined) => subject.subscribe(setState),
+    // Permite que os componentes se inscrevam para receber atualizações do estado
+    subscribe: (setState: Partial<Observer<ICampaingProps[]>> | ((value: ICampaingProps[]) => void) | undefined) => subject.subscribe(setState),
 
-    initialState
+    // Atualiza o estado e notifica os inscritos
+    setCampaings: (newCampaings: ICampaingProps[]) => {
+        state = [...newCampaings]; // Atualiza o estado
+        subject.next(state); // Emite o novo estado para os inscritos
+    },
+
+    campaings,
+    storeID
 }

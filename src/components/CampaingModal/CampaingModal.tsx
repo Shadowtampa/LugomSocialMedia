@@ -9,7 +9,7 @@ interface CampaignModalProps {
     formData: ICampaingProps;
     handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
     handleSwitchChange: () => void;
-    handleSubmit: (e: FormEvent) => void;
+    handleSubmit: (campaign: ICampaingProps) => void;
 }
 
 const customStyles = {
@@ -51,7 +51,7 @@ const CampaignModal: React.FC<CampaignModalProps> = ({
                         Criar Nova Campanha
                     </Typography>
 
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={() => handleSubmit(formData)} className="space-y-4">
                         <Input
                             crossOrigin
                             label="Título"
@@ -100,7 +100,7 @@ const CampaignModal: React.FC<CampaignModalProps> = ({
                     </form>
                 </CardBody>
                 <CardFooter className="pt-0">
-                    <Button fullWidth onClick={handleSubmit} color="green">
+                    <Button fullWidth onClick={() => handleSubmit(formData)} color="green">
                         Salvar
                     </Button>
                 </CardFooter>
