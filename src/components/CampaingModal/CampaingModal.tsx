@@ -41,7 +41,7 @@ const CampaignModal: React.FC<CampaignModalProps> = ({
             <Card className="max-w-xl mt-10 shadow-lg">
                 <CardHeader color="blue-gray" className="relative h-56">
                     <img
-                        src={formData.image || "https://via.placeholder.com/800x400.png?text=No+Image"}
+                        src={formData.image || "https://placehold.co/600x400/grey/white?text=Imagem+indisponível%0AEm+breve+suporte+será+adicionado"}
                         alt="campaign"
                         className="object-cover w-full h-full"
                     />

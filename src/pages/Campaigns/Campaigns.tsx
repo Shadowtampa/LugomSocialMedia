@@ -227,7 +227,7 @@ export const Campaigns = () => {
           campaings.map((campaing) => (
             <Card className="w-full" key={campaing.id}>
               <CardHeader color="blue-gray" className="relative h-56">
-                <img src={campaing.image} alt="card-image" />
+                <img src="https://placehold.co/600x400/grey/white?text=Imagem+indisponível%0AEm+breve+suporte+será+adicionado&size=40" alt="card-image" />
               </CardHeader>
               <CardBody>
                 <Typography variant="h5" color="blue-gray" className="mb-2">
@@ -272,7 +272,6 @@ export const Campaigns = () => {
         formData={formData}
         handleChange={handleChange}
         handleSwitchChange={handleSwitchChange}
-        handleSubmit={handlePublishCampaing}
       />
 
       <FavButton />
